@@ -1,0 +1,10 @@
+<h3><%= @recipe.name %> <h3>
+
+<% @ingredients.each do |r|  %>
+	<ul>
+		<li> <%= r.name %></li>
+		<br>		
+	</ul>
+<% end %>
+
+<p> <%=link_to "Home Page", url_for(:recipe, :index) %> </p>

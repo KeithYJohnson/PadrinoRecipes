@@ -1,0 +1,11 @@
+<h3>What would you like to cook?</h3>
+
+<% @recipes.each do |r|  %>
+	<ul>
+		<h3> <%=link_to "#{r.name}", url_for(:recipe, :show, :id => r.id, :name => r.name)	 %></h3>
+
+		<p> <%= r.created_at %></p>
+		<br>
+	</ul>
+<% end %>
+
