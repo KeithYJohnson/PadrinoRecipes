@@ -1,11 +1,35 @@
-<h3>What would you like to cook?</h3>
+<h2>What would you like to cook?</h2>
+
+<h3> Search for Recipes</h3>
+
+<%=flash[:notice] %> 
+
+<div>
+<% form_tag url_for(:recipe, :show) do %>
+	<p>
+		<%= label_tag :name %>
+		<%= text_field_tag :name %>
+	</p>
+	<%= submit_tag %>	
+<% end %>
+</div>
 
 <% @recipes.each do |r|  %>
 	<ul>
-		<h3> <%=link_to "#{r.name}", url_for(:recipe, :show, :id => r.id, :name => r.name)	 %></h3>
+		<h3> <%=link_to r.name, url_for(:recipe, :show, :id => r.id, :name => r.name)	 %></h3>
 
 		<p> <%= r.created_at %></p>
 		<br>
 	</ul>
 <% end %>
+
+<h3> Search by Category </h3>
+<% @categories.each do |c| %>
+	<ul>
+		<li><%= c.name %></li>
+	</ul>
+<% end %>
+
+
+
 

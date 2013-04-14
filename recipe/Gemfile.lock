@@ -68,6 +68,9 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
+    rack-flash3 (1.0.3)
+      rack
+      rack
     rack-protection (1.5.0)
       rack
     rack-test (0.6.2)
@@ -104,6 +107,7 @@ DEPENDENCIES
   erubis (~> 2.7.0)
   padrino (= 0.11.1)
   pry
+  rack-flash3
   rack-test
   rake
   shoulda
