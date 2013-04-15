@@ -26,7 +26,7 @@
 <h3> Search by Category </h3>
 <% @categories.each do |c| %>
 	<ul>
-		<li><%= c.name %></li>
+		<li><%=link_to c.name, url_for(:recipe, :list, :id => c.id)%></li>
 	</ul>
 <% end %>
 

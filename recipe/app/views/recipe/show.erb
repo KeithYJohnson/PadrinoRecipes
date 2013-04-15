@@ -1,10 +1,23 @@
-<h3><%= @recipe.name %> <h3>
+<% if @recipe %>
+	<h3><%= @recipe.name %> <h3>
 
-<% @ingredients.each do |r|  %>
-	<ul>
-		<li> <%= r.name %></li>
-		<br>		
-	</ul>
+	<% @ingredients.each do |r|  %>
+		<ul>
+			<li> <%= r.name %></li>
+			<br>		
+		</ul>
+	<% end %>
+<% end %>
+
+<% if @recipes %>
+	<% @recipes.each do |r|  %>
+		<ul>
+			<h3> <%=link_to r.name, url_for(:recipe, :show, :id => r.id, :name => r.name)	 %></h3>
+
+			<p> <%= r.created_at %></p>
+			<br>
+		</ul>
+	<% end %>
 <% end %>
 
 <p> <%=link_to "Home Page", url_for(:recipe, :index) %> </p>

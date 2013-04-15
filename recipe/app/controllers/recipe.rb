@@ -10,7 +10,7 @@ RecipeApp::App.controllers :recipe do
  	get :show, :map => 'recipe/ingredients/:name' do
 	 	@recipe = Recipe.where("name = ?", params[:name]).first
 	 	@ingredients = @recipe.ingredients
-		render 'recipe/show'
+		render 'recipe/show'		
   end
 
   post :show do
@@ -27,8 +27,13 @@ RecipeApp::App.controllers :recipe do
 	  	redirect(url(:recipe, :index))
 	  
 	  end
+	end
 
-  end
+	get :list, :map => 'recipe/categories/:id' do
+		@recipes = Recipe.where("category_id = ?", params[:id])
+
+		render 'recipe/show'
+	end
 
 
 
