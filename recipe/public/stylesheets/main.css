@@ -1,3 +1,11 @@
-div {
-	font-size: 20px;
+#wrapper {
+	margin:0 auto;
+	width:632px;
+	border-left:1px solid #f0e9eb;
+	border-right:1px solid #f0e9eb;
+}
+
+#header {
+	margin: 0 1px;
+	background-color: gray;
 }

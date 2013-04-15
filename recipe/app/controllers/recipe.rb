@@ -31,7 +31,7 @@ RecipeApp::App.controllers :recipe do
 
 	get :list, :map => 'recipe/categories/:id' do
 		@recipes = Recipe.where("category_id = ?", params[:id])
-
+		
 		render 'recipe/show'
 	end
 
