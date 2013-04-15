@@ -1,35 +1,52 @@
-<h2>What would you like to cook?</h2>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	</head>
 
-<h3> Search for Recipes</h3>
+	<body>
 
-<%=flash[:notice] %> 
+<!-- 		<div class ="header">
+			<h2>The Amazing Recipe Index</h2>
+		</div>
 
-<div>
-<% form_tag url_for(:recipe, :show) do %>
-	<p>
-		<%= label_tag :name %>
-		<%= text_field_tag :name %>
-	</p>
-	<%= submit_tag %>	
-<% end %>
-</div>
+		<div>
+			<h3> Search for Recipes</h3>
+		</div>
 
-<% @recipes.each do |r|  %>
-	<ul>
-		<h3> <%=link_to r.name, url_for(:recipe, :show, :id => r.id, :name => r.name)	 %></h3>
+		<%=flash[:notice] %> 
 
-		<p> <%= r.created_at %></p>
-		<br>
-	</ul>
-<% end %>
+		<div>
+			<% form_tag url_for(:recipe, :show) do %>
+				<p>
+					<%= label_tag :name %>
+					<%= text_field_tag :name %>
+				</p>
+				<%= submit_tag %>	
+			<% end %>
+		</div> -->
 
-<h3> Search by Category </h3>
-<% @categories.each do |c| %>
-	<ul>
-		<li><%=link_to c.name, url_for(:recipe, :list, :id => c.id)%></li>
-	</ul>
-<% end %>
+		<h2> Recipe List </h2>
 
+		<div class="container">
+			<% @recipes.each do |r|  %>
+				<ul>
+					<h3> <%=link_to r.name, url_for(:recipe, :show, :id => r.id, :name => r.name)	 %></h3>
 
+					<p> <%= r.created_at %></p>
+					<br>
+				</ul>
+			<% end %>
+		</div>
 
+		<div>
+			<h3> Search by Category </h3>
+			<% @categories.each do |c| %>
+				<ul>
+					<li><%=link_to c.name, url_for(:recipe, :list, :id => c.id)%></li>
+				</ul>
+			<% end %>
+		</div>
 
+	</body>
+
+</html>
